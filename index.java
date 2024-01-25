@@ -7,7 +7,7 @@ import java.util.*;
             System.out.println("2. Withdraw amount"); 
             System.out.println("3. Balance amount"); 
             System.out.println("4. Exit"); 
-            System.out.println("Enter our choice"); 
+            System.out.println("Enter your choice"); 
             int ch=sc.nextInt(); 
             int amt=0;
             while(ch!=4){
@@ -22,17 +22,25 @@ import java.util.*;
                 case 2: 
                     System.out.println("Enter amount to be debited"); 
                     int y=sc.nextInt();
-                    if(y>amt && amt>=2000){
+                    if(y>amt){
                         System.out.println("Insufficient funds");
                     } 
                     else{
                         amt=amt-y;
+                        if(amt<2000){
+                            System.out.println("Minimum balance is not there ");
+                            System.out.println("CANCEL TRANSACTION");
+                            amt=amt+y;
+                        }
                     }
                    
                    break;
                 case 3: 
-                    System.out.println("Balance amount"); 
+                    System.out.print("Balance amount: "); 
                     System.out.println(amt); 
+                    if(amt==2000){
+                        System.out.println("Only the minimum balance is there");
+                    }
                     
                     break;
                 case 4:
